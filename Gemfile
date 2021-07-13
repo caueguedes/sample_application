@@ -25,8 +25,27 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
+# Use Devise for authentication
+gem 'devise'
+# Use DoorKeeper to manage api authentication
+gem 'doorkeeper'
+# Use CanCanCan for authorization
+gem 'cancancan'
+
+# Use to allow cross resource origin sharing
+gem 'rack-cors'
+
+# Use Kamirari for pagination
+gem 'kaminari'
+
+# Use to serialize objects
+gem 'jsonapi-serializer'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
+
+# Gem to interact with React code via react_components
+gem 'react-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
