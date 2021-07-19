@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resource :users, only: [:create]
       resources :units
+      resources :vehicles
     end
 
     root to: 'api/units#index'
@@ -16,6 +17,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :units
+  resources :vehicles
 
   root to: 'units#index'
 end

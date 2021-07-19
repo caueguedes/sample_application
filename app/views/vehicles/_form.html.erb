@@ -1,0 +1,72 @@
+<%= form_with(model: vehicle) do |form| %>
+  <% if vehicle.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(vehicle.errors.count, "error") %> prohibited this vehicle from being saved:</h2>
+
+      <ul>
+        <% vehicle.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :brand %>
+    <%= form.text_field :brand %>
+  </div>
+
+  <div class="field">
+    <%= form.label :model_year %>
+    <%= form.number_field :model_year %>
+  </div>
+
+  <div class="field">
+    <%= form.label :gear %>
+    <%= form.text_field :gear %>
+  </div>
+
+  <div class="field">
+    <%= form.label :doors %>
+    <%= form.number_field :doors %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fuel %>
+    <%= form.number_field :fuel %>
+  </div>
+
+  <div class="field">
+    <%= form.label :color %>
+    <%= form.text_field :color %>
+  </div>
+
+  <div class="field">
+    <%= form.label :air %>
+    <%= form.check_box :air %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sound_system %>
+    <%= form.check_box :sound_system %>
+  </div>
+
+  <div class="field">
+    <%= form.label :air %>
+    <%= form.check_box :air %>
+  </div>
+
+  <div class="field">
+    <%= form.label :airbags %>
+    <%= form.check_box :airbags %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
