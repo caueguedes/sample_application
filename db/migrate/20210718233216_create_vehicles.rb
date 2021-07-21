@@ -10,12 +10,12 @@ class CreateVehicles < ActiveRecord::Migration[6.1]
       t.string :color
       t.boolean :air
       t.boolean :sound_system
-      t.boolean :air
       t.boolean :airbags
+      t.integer :mileage
 
       t.timestamps
     end
 
-    add_foreign_key :units, :vehicles
+    add_reference :vehicles, :unit, foreign_key: true
   end
 end
