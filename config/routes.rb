@@ -10,14 +10,16 @@ Rails.application.routes.draw do
       resources :units
       resources :vehicles
     end
-
-    root to: 'api/units#index'
   end
 
-  devise_for :users
+  scope :admin do
+    devise_for :users
 
-  resources :units
-  resources :vehicles
+    resources :units
+    resources :vehicles
+    # root to: 'units#index'
+  end
 
-  root to: 'units#index'
+  get '/*page', to: 'pages#index', constratints: -> (req) { !req.xhr? && req.format.html? }
+  # get '/*path' => 'pages#index'
 end
