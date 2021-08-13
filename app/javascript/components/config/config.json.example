@@ -1,0 +1,6 @@
+{
+  "SERVER_URL": "your requisition server",
+  "CLIENT_ID": "Client from application added",
+  "CLIENT_SECRET": "Secret from application added",
+  "GOOGLE_API_KEY": "Your google api here"
+}

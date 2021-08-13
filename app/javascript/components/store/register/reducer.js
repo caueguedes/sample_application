@@ -5,7 +5,7 @@ export function registerReducer(state =  {}, action) {
     case registerTypes.REGISTER_REQUEST:
       return { registering: true };
     case registerTypes.REGISTER_SUCCESS:
-      return {};
+      return { };
     case registerTypes.REGISTER_FAILURE:
       return {};
     default:

@@ -1,0 +1,8 @@
+{
+  "HOME": { "title": "Home", "path": "/", "public": true },
+  "UNITS": { "title": "Units", "path": "/units", "public": true },
+  "PRICING": { "title": "Pricing", "path": "/pricing", "public": true },
+  "REGISTER": { "title": "Register", "path": "/register", "public": false },
+  "LOGIN": { "title": "Login", "path": "/login", "public": false },
+  "LOGOUT": { "title": "Logout", "path": "/logout", "public": false  }
+}

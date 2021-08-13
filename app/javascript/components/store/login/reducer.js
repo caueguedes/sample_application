@@ -3,6 +3,8 @@ import { getJwt } from "../../utils";
 
 let user = getJwt();
 
+export const userSelector = state => state.login.user;
+
 const initialState = user ? { loggedIn: true, user } : {};
 
 export function loginReducer(state = initialState, action) {

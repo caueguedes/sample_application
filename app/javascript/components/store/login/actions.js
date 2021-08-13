@@ -4,9 +4,10 @@ import { alertActions } from '../alert';
 import { history } from '../../utils';
 
 import { getJwt, setJwt, removeJwt } from '../../utils/auth'
+import routes from '../../config/routes.json'
 
 
-function login(user, from = '/') {
+function login(user, from = routes.HOME.path) {
   return async dispatch => {
     dispatch({type: loginTypes.LOGIN_REQUEST, user});
 
@@ -26,17 +27,15 @@ function login(user, from = '/') {
   };
 }
 
-async function logout() {
+function logout() {
   try {
     let token = getJwt().access_token;
-    await authService.logout(token);
-
+    authService.logout(token);
   }catch (error) {
     console.log(`Error on logout: ${error}`)
-
   } finally {
     removeJwt();
-    return { type: loginTypes.LOGOUT };
+    return {type: loginTypes.LOGOUT};
   }
 }
 
