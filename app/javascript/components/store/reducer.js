@@ -1,14 +1,18 @@
 import { combineReducers } from "redux";
 
 import { alertReducer } from './alert'
-import { registerReducer } from "./register/reducer";
 import { loginReducer } from "./login";
+import { registerReducer } from "./register";
+import { unitsReducer } from "./unit";
+import { bottlesReducer } from "./bootle";
 
 
 const rootReducer = combineReducers({
-  register: registerReducer,
   alert: alertReducer,
-  login: loginReducer
+  login: loginReducer,
+  register: registerReducer,
+  unit: unitsReducer,
+  bottle: bottlesReducer
 });
 
 export default rootReducer;
