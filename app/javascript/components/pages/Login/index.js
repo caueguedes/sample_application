@@ -19,6 +19,7 @@ import { useStyles } from "./style";
 
 import { loginActions } from "../../store/login";
 
+import routes from '../../config/routes.json';
 
 const Login = () => {
   const classes = useStyles();
@@ -91,7 +92,7 @@ const Login = () => {
 
           <Grid container>
             <Grid item>
-              <MUILink component={Link} to="/register" variant="body2">
+              <MUILink component={Link} to={routes.REGISTER.path} variant="body2">
                 Don't have an account? Register
               </MUILink>
             </Grid>

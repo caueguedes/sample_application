@@ -20,6 +20,7 @@ import { useStyles } from "./style";
 
 import { registerActions } from "../../store/register/actions";
 
+import routes from '../../config/routes.json';
 
 const Register = () => {
   const classes = useStyles();
@@ -43,47 +44,6 @@ const Register = () => {
         </Typography>
         <form className={classes.form} onSubmit={handleSubmit(onSubmit)} noValidate>
           <Grid container spacing={2}>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                autoComplete="fname"
-                name="firstName"
-                variant="outlined"
-                required
-                fullWidth
-                id="firstName"
-                label="First Name"
-                autoFocus
-                error={errors.firstName ? true : false}
-                {
-                  ...register('firstName', {
-                  required: 'First name is required'
-                })}
-              />
-              <Typography variant="inherit" color="error" display="block">
-                {errors.firstName && errors.firstName.message}
-              </Typography>
-            </Grid>
-
-            <Grid item xs={12} sm={6}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                id="lastName"
-                label="Last Name"
-                name="lastName"
-                autoComplete="lname"
-                error={errors.lastName ? true : false}
-                {
-                  ...register('lastName', {
-                  required: "Last name is required"
-                })}
-              />
-              <Typography variant="inherit" color="error" display="block">
-                {errors.lastName && errors.lastName.message}
-              </Typography>
-            </Grid>
-
             <Grid item xs={12}>
               <TextField
                 variant="outlined"
@@ -123,7 +83,26 @@ const Register = () => {
               <Typography variant="inherit" color="error" display="block">
                 {errors.password && errors.password.message}
               </Typography>
+            </Grid>
 
+            <Grid item xs={12}>
+              <TextField
+                variant="outlined"
+                required
+                fullWidth
+                label="Password confirmation"
+                type="password"
+                id="password_confirmation"
+                error={errors.password_confirmation ? true : false}
+                {
+                  ...register('password_confirmation', {
+                    validate: value =>
+                     value !== '' && value === password.value || "The passwords do not match",
+                  })}
+              />
+              <Typography variant="inherit" color="error" display="block">
+                {errors.password_confirmation && errors.password_confirmation.message}
+              </Typography>
             </Grid>
           </Grid>
 
@@ -141,7 +120,7 @@ const Register = () => {
 
           <Grid container justifyContent="flex-end">
             <Grid item>
-              <MUILink component={Link} to="/login" variant="body2">
+              <MUILink component={Link} to={routes.LOGIN.path} variant="body2">
                 Already have an account? Login
               </MUILink>
             </Grid>
