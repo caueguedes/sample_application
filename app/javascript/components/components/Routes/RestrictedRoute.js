@@ -3,7 +3,11 @@ import { Route, Redirect } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
 import { alertActions } from "../../store/alert";
+
 import { isLoggedIn } from "../../utils";
+
+import routes  from '../../config/routes.json'
+
 
 export default function RestrictedRoute({ component: Component, ...rest}) {
   const dispatch = useDispatch();
@@ -20,7 +24,7 @@ export default function RestrictedRoute({ component: Component, ...rest}) {
     <Route {...rest} render={props => (
       !isLoggedIn()
         ? <Component {...props} />
-        : <Redirect to="/" />
+        : <Redirect to={routes.HOME.path} />
     )} />
   );
 };
