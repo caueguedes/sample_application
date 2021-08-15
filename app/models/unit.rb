@@ -1,3 +1,5 @@
 class Unit < ApplicationRecord
-  has_many :vehicles
+  include Validations::Unit
+
+  has_many :bottles
 end
