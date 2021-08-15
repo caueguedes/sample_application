@@ -13,6 +13,6 @@ class Api::V1::BottlesController < Api::ApplicationController
 
   private
     def current_ability
-      @current_ability ||= BottlesAbility.new current_user
+      @current_ability ||= BottlesAbility.new(current_user)
     end
 end
