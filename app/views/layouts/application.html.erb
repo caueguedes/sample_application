@@ -11,7 +11,24 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="root">
+    <div class="admin__header">
+      <%= react_component('admin/components/Layout/AdminLayout/AppBar', {
+        title: page_name,
+        logoutLink: destroy_user_session_path
+      }) %>
+    </div>
+
+    <div class="admin__drawer">
+      <%= react_component('admin/components/Layout/AdminLayout/AsideDrawer', {
+        links: links
+      }) %>
+    </div>
+
+    <main class="admin__content">
+      <p id="notice"><%= notice %></p>
+      <%= yield %>
+    </main>
+
   </body>
 </html>

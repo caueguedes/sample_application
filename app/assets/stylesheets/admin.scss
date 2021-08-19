@@ -1,0 +1,32 @@
+$default-padding: 1rem;
+$medium-padding: 2rem;
+$large-padding: 3rem;
+
+$default-font-weight: 400;
+
+$drawerPaper: 270px;
+
+.root {
+  display: flex;
+}
+
+.admin__header {
+  min-height: 64px;
+}
+
+.admin__drawer {
+  width: $drawerPaper;
+}
+
+.admin__content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: $large-padding 0;
+}
+
+.admin__table {
+  line-height: 1.43;
+  font-weight: $default-font-weight;
+}
+
