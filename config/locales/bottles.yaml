@@ -1,0 +1,11 @@
+en:
+  bottles:
+    title: 'Bottles'
+    new:
+      title: 'New Bottle'
+    show:
+      title: 'Bottle'
+    update:
+      title: 'Bottle'
+    create:
+      title: 'Bottle'

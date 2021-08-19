@@ -1,0 +1,11 @@
+en:
+  units:
+    title: 'Units'
+    new:
+      title: 'New Unit'
+    show:
+      title: 'Unit'
+    update:
+      title: 'Unit'
+    create:
+      title: 'Unit'

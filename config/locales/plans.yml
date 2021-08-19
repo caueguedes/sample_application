@@ -1,0 +1,11 @@
+en:
+  plans:
+    title: 'Plans'
+    new:
+      title: 'New Plan'
+    show:
+      title: 'Plan'
+    update:
+      title: 'Plan'
+    create:
+      title: 'Plan'
