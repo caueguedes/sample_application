@@ -8,19 +8,18 @@ class BottlesController < ApplicationController
   end
 
   def show
+    render 'bottles/show'
   end
 
   def new
-  end
-
-  def edit
+    render 'bottles/show'
   end
 
   def create
     if @bottle.save
       redirect_to @bottle, notice: "Bottle was successfully created."
     else
-      render :new, status: :unprocessable_entity
+      render 'bottles/show', status: :unprocessable_entity
     end
   end
 
@@ -28,7 +27,7 @@ class BottlesController < ApplicationController
     if @bottle.update(bottle_params)
       redirect_to @bottle, notice: "Bottle was successfully updated."
     else
-      render :edit, status: :unprocessable_entity
+      render 'bottles/show', status: :unprocessable_entity
     end
   end
 

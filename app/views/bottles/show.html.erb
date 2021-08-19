@@ -1,15 +1,9 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @bottle.name %>
-</p>
-<p>
-  <strong>Name:</strong>
-  <%= @bottle.brand %>
-</p>
-
-
-
-<%= link_to 'Edit', edit_bottle_path(@bottle) %> |
-<%= link_to 'Back', bottles_path %>
+<%= form_with(model: @bottle) do %>
+  <%= react_component('admin/components/Forms/BottleForm', {
+    title: translate("#{controller_name}.#{action_name}.title"),
+    isEditing: is_editing,
+    bottle: @bottle,
+    errors: @bottle.errors.to_hash,
+    bottlesPath: bottles_path
+  }) %>
+<% end %>

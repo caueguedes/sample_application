@@ -1,0 +1,9 @@
+<%= form_with(model: @plan) do %>
+  <%= react_component('admin/components/Forms/PlanForm', {
+    title: translate("#{controller_name}.#{action_name}.title"),
+    isEditing: is_editing,
+    plan: @plan,
+    errors: @plan.errors.to_hash,
+    plansPath: plans_path
+  }) %>
+<% end %>

@@ -1,27 +1,26 @@
 class UnitsController < ApplicationController
-  before_action :set_unit, only: %i[ show edit update destroy ]
+  include Pagination
+  before_action :authenticate_user!
+  load_and_authorize_resource except: :index
 
   def index
-    @units = Unit.all
+    @units = paginate(Unit.accessible_by(current_ability))
   end
 
   def show
+    binding.pry
+    render 'units/show'
   end
 
   def new
-    @unit = Unit.new
-  end
-
-  def edit
+    render 'units/show'
   end
 
   def create
-    @unit = Unit.new(unit_params)
-
     if @unit.save
       redirect_to @unit, notice: "Unit was successfully created."
     else
-      render :new, status: :unprocessable_entity
+      render 'units/show', status: :unprocessable_entity
     end
   end
 
@@ -29,7 +28,7 @@ class UnitsController < ApplicationController
     if @unit.update(unit_params)
       redirect_to @unit, notice: "Unit was successfully updated."
     else
-      render :edit, status: :unprocessable_entity
+      render 'units/show', status: :unprocessable_entity
     end
   end
 
@@ -39,11 +38,11 @@ class UnitsController < ApplicationController
   end
 
   private
-    def set_unit
-      @unit = Unit.find(params[:id])
-    end
-
     def unit_params
       params.require(:unit).permit(:name, :address, :city, :neighborhood, :phone, :latitude, :longitude)
+    end
+
+    def current_ability
+      @current_ability ||= UnitsAbility.new current_user
     end
 end

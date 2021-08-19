@@ -1,39 +1,9 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @unit.name %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @unit.address %>
-</p>
-
-<p>
-  <strong>City:</strong>
-  <%= @unit.city %>
-</p>
-
-<p>
-  <strong>Neighborhood:</strong>
-  <%= @unit.neighborhood %>
-</p>
-
-<p>
-  <strong>Phone:</strong>
-  <%= @unit.phone %>
-</p>
-
-<p>
-  <strong>Latitude:</strong>
-  <%= @unit.latitude %>
-</p>
-
-<p>
-  <strong>Longitude:</strong>
-  <%= @unit.longitude %>
-</p>
-
-<%= link_to 'Edit', edit_unit_path(@unit) %> |
-<%= link_to 'Back', units_path %>
+<%= form_with(model: @unit) do %>
+  <%= react_component('admin/components/Forms/UnitForm', {
+    title: translate("#{controller_name}.#{action_name}.title"),
+    isEditing: is_editing,
+    unit: @unit,
+    errors: @unit.errors.to_hash,
+    unitsPath: units_path
+  }) %>
+<% end %>

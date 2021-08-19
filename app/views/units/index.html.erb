@@ -1,39 +1,6 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Units</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Address</th>
-      <th>City</th>
-      <th>Neighborhood</th>
-      <th>Phone</th>
-      <th>Latitude</th>
-      <th>Longitude</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @units.each do |unit| %>
-      <tr>
-        <td><%= unit.name %></td>
-        <td><%= unit.address %></td>
-        <td><%= unit.city %></td>
-        <td><%= unit.neighborhood %></td>
-        <td><%= unit.phone %></td>
-        <td><%= unit.latitude %></td>
-        <td><%= unit.longitude %></td>
-        <td><%= link_to 'Show', unit %></td>
-        <td><%= link_to 'Edit', edit_unit_path(unit) %></td>
-        <td><%= link_to 'Destroy', unit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Unit', new_unit_path %>
+<%= react_component('admin/pages/Units/', {
+  rows: @units.to_a,
+  total_pages: @units.total_pages,
+  page: @current_page
+}) %>
