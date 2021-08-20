@@ -4,8 +4,8 @@ class CreateBottles < ActiveRecord::Migration[6.1]
       t.string  :name
       t.string  :brand
       t.string  :country
-      t.datetime :bottled
-      t.integer :type
+      t.integer :bottled
+      t.integer :bottle_type
       t.string  :coloring
       t.string  :description
 
