@@ -39,7 +39,7 @@ class BottlesController < ApplicationController
 
   private
     def bottle_params
-      params.require(:bottle).permit(:name, :brand, :country, :bottled, :bottle_type, :coloring, :description)
+      params.require(:bottle).permit(:name, :brand, :country, :bottled, :bottle_type, :image, :coloring, :description)
     end
 
     def current_ability

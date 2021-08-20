@@ -6,6 +6,7 @@ class CreateBottles < ActiveRecord::Migration[6.1]
       t.string  :country
       t.integer :bottled
       t.integer :bottle_type
+      t.string  :image
       t.string  :coloring
       t.string  :description
 
