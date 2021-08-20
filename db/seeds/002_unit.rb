@@ -6,6 +6,6 @@
     neighborhood: Faker::Address.community,
     phone: Faker::Base.numerify('###-###-####'),
     latitude: Faker::Number.between(from: 34.60, to: 39.60),
-    longitude: Faker::Number::between(from: 85.66, to: 105.66)
+    longitude: Faker::Number::between(from: -85.66, to: -105.66)
   )
 end
