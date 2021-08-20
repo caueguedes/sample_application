@@ -1,5 +1,17 @@
 Rails.application.routes.draw do
-  # Used to generate doorkeeper routes to api
+  scope :admin do
+    devise_for :users, controllers: {
+      sessions: 'users/sessions'
+    }
+
+    resources :units, except: :edit
+    resources :bottles, except: :edit
+    resources :plans, except: :edit
+
+    root to: 'units#index', :as => :admin_user_root
+  end
+
+  # Routes for api --
   use_doorkeeper do
     skip_controllers :authorizations, :applications, :authorized_applications
   end
@@ -7,19 +19,13 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resource :users, only: [:create]
-      resources :units
-      resources :vehicles
+      get :units, to: 'units#index'
+      get :plans, to: 'plans#index'
+      get :bottles, to: 'bottles#index'
     end
+    get '*page', to: 'pages#routing_error'
   end
 
-  scope :admin do
-    devise_for :users
-
-    resources :units
-    resources :vehicles
-    # root to: 'units#index'
-  end
-
-  get '/*page', to: 'pages#index', constratints: -> (req) { !req.xhr? && req.format.html? }
-  # get '/*path' => 'pages#index'
+  get '*page', to: 'api/pages#index', constraints: -> (req) { !req.xhr? && req.format.html? }
+  root to: 'api/pages#index'
 end
