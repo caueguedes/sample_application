@@ -5,7 +5,7 @@ export const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     justifyContent: "center",
     flexDirection: "column",
-    minHeight: '100vh',
+    minHeight: '60vh',
   },
   warning_icon: {
     width: 50,

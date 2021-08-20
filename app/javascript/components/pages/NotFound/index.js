@@ -7,15 +7,21 @@ import WarningRoundedIcon from '@material-ui/icons/WarningRounded';
 
 import { useStyles } from './style';
 
+import { DefaultLayout } from "../../components/Layouts";
+
+
 const NotFound = () => {
   const classes = useStyles();
-
   return (
-    <Grid container className={classes.container}>
-      <Typography variant="h3">404</Typography>
-      <WarningRoundedIcon className={classes.warning_icon}/>
-      <Typography variant="h3">Not Found</Typography>
-    </Grid>
+    <DefaultLayout>
+
+      <Grid container className={classes.container}>
+        <Typography variant="h3">404</Typography>
+        <WarningRoundedIcon className={classes.warning_icon}/>
+        <Typography variant="h3">Not Found</Typography>
+      </Grid>
+
+    </DefaultLayout>
   );
 };
 
