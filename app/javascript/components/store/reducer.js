@@ -5,6 +5,7 @@ import { loginReducer } from "./login";
 import { registerReducer } from "./register";
 import { unitsReducer } from "./unit";
 import { bottlesReducer } from "./bootle";
+import { plansReducer } from "./plan";
 
 
 const rootReducer = combineReducers({
@@ -12,7 +13,8 @@ const rootReducer = combineReducers({
   login: loginReducer,
   register: registerReducer,
   unit: unitsReducer,
-  bottle: bottlesReducer
+  bottle: bottlesReducer,
+  plan: plansReducer
 });
 
 export default rootReducer;
