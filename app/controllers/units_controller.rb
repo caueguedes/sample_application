@@ -8,7 +8,6 @@ class UnitsController < ApplicationController
   end
 
   def show
-    binding.pry
     render 'units/show'
   end
 

@@ -39,7 +39,7 @@ class PlansController < ApplicationController
 
   private
     def plan_params
-      params.require(:plan).permit(:title, :subtitle, :price, :description)
+      params.require(:plan).permit(:title, :subtitle, :price, description: []).reverse_merge(description: [])
     end
 
     def current_ability
