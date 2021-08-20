@@ -10,10 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_18_001747) do
+ActiveRecord::Schema.define(version: 2021_08_05_043316) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bottles", force: :cascade do |t|
+    t.string "name"
+    t.string "brand"
+    t.string "country"
+    t.integer "bottled"
+    t.integer "bottle_type"
+    t.string "image"
+    t.string "coloring"
+    t.string "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "unit_id"
+    t.index ["unit_id"], name: "index_bottles_on_unit_id"
+  end
 
   create_table "oauth_access_tokens", force: :cascade do |t|
     t.bigint "resource_owner_id"
@@ -43,11 +58,23 @@ ActiveRecord::Schema.define(version: 2021_07_18_001747) do
     t.index ["uid"], name: "index_oauth_applications_on_uid", unique: true
   end
 
+  create_table "plans", force: :cascade do |t|
+    t.string "title"
+    t.string "subtitle"
+    t.decimal "price", precision: 10, scale: 2
+    t.text "description", array: true
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "units", force: :cascade do |t|
     t.string "name"
     t.string "address"
     t.string "city"
-    t.string "state"
+    t.string "neighborhood"
+    t.string "phone"
+    t.decimal "latitude", precision: 10, scale: 2
+    t.decimal "longitude", precision: 10, scale: 2
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -63,9 +90,13 @@ ActiveRecord::Schema.define(version: 2021_07_18_001747) do
     t.boolean "admin", default: false
     t.boolean "staff", default: false
     t.boolean "user", default: true
+    t.bigint "unit_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["unit_id"], name: "index_users_on_unit_id"
   end
 
+  add_foreign_key "bottles", "units"
   add_foreign_key "oauth_access_tokens", "oauth_applications", column: "application_id"
+  add_foreign_key "users", "units"
 end
