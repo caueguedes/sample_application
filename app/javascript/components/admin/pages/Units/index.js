@@ -6,6 +6,7 @@ import DataGrid from "../../components/DataGrid";
 import Pagination from "../../components/Pagination";
 import ShowButton from "../../components/DataGrid/ShowButton";
 import DeleteButton from "../../components/DataGrid/DeleteButton";
+import AddButton from "../../components/DataGrid/AddButton";
 
 const columns = [
   { field: 'name', headerName: 'Name', width: 120 },
@@ -24,6 +25,8 @@ function Units({rows, ...props}) {
       <Typography component="h1" variant="h4" >
         Units
       </Typography>
+
+      <AddButton href="/admin/units/new" />
       <DataGrid
         columns={columns}
         rows={rows}

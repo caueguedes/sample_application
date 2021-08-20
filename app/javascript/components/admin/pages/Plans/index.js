@@ -5,6 +5,7 @@ import { Typography } from "@material-ui/core";
 import DataGrid from "../../components/DataGrid";
 import ShowButton from "../../components/DataGrid/ShowButton";
 import DeleteButton from "../../components/DataGrid/DeleteButton";
+import AddButton from "../../components/DataGrid/AddButton";
 
 const columns = [
   { field: 'title', headerName: 'Title', width: 120 },
@@ -22,6 +23,7 @@ function Plans({rows}) {
       <Typography component="h1" variant="h4" >
         Plans
       </Typography>
+      <AddButton href="/admin/plans/new" />
       <DataGrid
         columns={columns}
         rows={rows}

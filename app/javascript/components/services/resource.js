@@ -9,6 +9,10 @@ const getUnits = () => {
   return api.get('/api/v1/units');
 }
 
+const getPlans = () => {
+  return api.get('/api/v1/plans');
+}
+
 const getBottles = (page= 1) => {
   let config = {
     params: {
@@ -20,5 +24,6 @@ const getBottles = (page= 1) => {
 
 export const resourceService = {
   getUnits,
-  getBottles
+  getBottles,
+  getPlans
 };

@@ -6,6 +6,7 @@ import DataGrid from "../../components/DataGrid";
 import DeleteButton from "../../components/DataGrid/DeleteButton";
 import Pagination from "../../components/Pagination";
 import ShowButton from "../../components/DataGrid/ShowButton";
+import AddButton from "../../components/DataGrid/AddButton";
 
 const columns = [
   { field: 'name', headerName: 'Name', width: 120 },
@@ -23,6 +24,7 @@ function Bottles({rows, ...props}) {
       <Typography component="h1" variant="h4" >
         Bottles
       </Typography>
+      <AddButton href="/admin/bottles/new" />
       <DataGrid
         columns={columns}
         rows={rows}
