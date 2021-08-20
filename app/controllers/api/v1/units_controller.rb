@@ -11,6 +11,6 @@ class Api::V1::UnitsController < Api::ApplicationController
 
   private
     def current_ability
-      @current_ability ||= UnitsAbility.new current_user
+      @current_ability ||= UnitsAbility.new(current_user)
     end
 end
