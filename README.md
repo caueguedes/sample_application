@@ -237,6 +237,9 @@ we can add a v2 without problems, continuing with the compatibility of the old i
 
 ## Notes
 
+
+**Caching**  
+
 It makes sense to cache API index actions since it does not often change.  What would improve the performance.
 
 API::ActionController does not support the action_support caching gems (page and action), so it has to be done using low-level caching.
@@ -246,6 +249,16 @@ https://github.com/caueguedes/qconcursos-challenge
 
 at the file:
 https://github.com/caueguedes/qconcursos-challenge/blob/master/app/controllers/questions_controller.rb
+
+**Client side Caching**  
+
+The react component "reselector" was used, which prevents the same query from being done twice in a row.  
+We can also make a cache on the client side preventing it from remaking previously executed requests using "re-reselect".
+
+**Lazzy loading importing**  
+
+It was used LazyLoading components import, what makes the import of these components to be performed in smaller chunks 
+making the application load more efficient.
 
 ## To-dos
 
