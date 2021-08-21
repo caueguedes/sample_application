@@ -64,8 +64,6 @@ _**Three users are provided with the seed:**_
 which gives the project the ability to use JWT authentication with Bearer token (in addition 
 to other benefits such as WhiteListing, Revoking and Refresh tokens).  
 
-The Identity provider step has been suppressed and the default authentication have been applied by **Wargen** 
-the default authenticator for Devise.
 
 **Admin** - Gem Devise and sessions
 
