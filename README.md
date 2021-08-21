@@ -156,6 +156,7 @@ The _**CanCanCan**_ gem was used to set the access levels abilities.
 * `app/javascript/components`: JavaScript Application SPA and admin.
     <details>
       <summary>Javascript SPA structure</summary>
+  
         .. ... ...
         ├── javascript
         |   ├── admin (Components from scope Admin server)
@@ -177,6 +178,7 @@ The _**CanCanCan**_ gem was used to set the access levels abilities.
     </details>
     <details>
       <summary>Javascript Admin structure</summary>
+  
         .. ... ...
         ├── javascript
         |   ├── components 
@@ -212,3 +214,19 @@ The _**CanCanCan**_ gem was used to set the access levels abilities.
         |   |   └── PlanSerializer.rb
         ..
     </details>
+
+## Notes
+
+It makes sense to cache API index actions since it does not often change.  What would improve the performance.
+
+API::ActionController does not support the action_support caching gems (page and action), so it has to be done using low-level caching.
+
+You can find an example of this implementation at this sample project:
+https://github.com/caueguedes/qconcursos-challenge
+
+at the file:
+https://github.com/caueguedes/qconcursos-challenge/blob/master/app/controllers/questions_controller.rb
+
+## To-dos
+
+Implement image uploader component using lambda function (action_storage is an option on uploading content, but it does not support asynchronous works, which increases the response time and server disponibility)
