@@ -74,6 +74,28 @@ The _**CanCanCan**_ gem was used to set the access levels abilities.
 
 `Access Abilities were defined based on resources rather than user.`
 
+### Pagination and serialization
+It was used the gems Kaminari for pagination, and jsonapi-serializer for serialization.
+
+Serializers can be found at "app/serializers".  
+A pagination module was created for both api and standard scope.
+
+### Api Versioning
+
+The routes and api classes were created in separate modules, making versioning easier, 
+we can add a v2 without problems, continuing with the compatibility of the old integrated applications.
+
+    |   ├── api
+    |   |   ├── application_controler.rb  (extends ActionController::API, sets serializer and doorkeeper auth)
+    |   |   ├── pages_controller.rb  (used to render SPA)
+    |   |   └── v1 (version 1 of api domain)
+    |   |   |   ├── bottles_controller.rb
+    |   |   |   └── users_controller.rb
+    |   |   └── v2 (version 1 of api domain)
+    |   |   |   ├── bottles_controller.rb
+    |   |   |   └── users_controller.rb
+
+
 ### Folder structure defined
 
 * `app/authorization`: CanCanCan authorization abilities.
