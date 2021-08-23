@@ -39,6 +39,14 @@ Five containers will be created
 4. **pd-admin** - postgres tools
 5. **db-migrator** - responsible for keep migratings up-to-date
 
+
+### Javascript Configuration
+
+The SPA javascript application has a configuration file that must be filled in for it to work properly. 
+You can find a version of this file at:  
+`app/javascript/components/config/config.json.example`  
+Fill in the fields and change the file name to  "config.json" only.
+
 ### DataBase
 
 The project includes a container responsible for the migration of the development bank.  
