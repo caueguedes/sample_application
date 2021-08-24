@@ -1,6 +1,6 @@
 {
-  "SERVER_URL": "your requisition server",
-  "CLIENT_ID": "Client from application added",
-  "CLIENT_SECRET": "Secret from application added",
+  "SERVER_URL": "your requisition server <localhost:3000>",
+  "CLIENT_ID": "f8R9N0AAkYtOfnVM_W9ZnLFa85uJjgbuPztMSP2mU4E",
+  "CLIENT_SECRET": "nYpmUxwythHSzB-7RXnamJ6ZSNirderMVI2AABn86m4",
   "GOOGLE_API_KEY": "Your google api here"
 }
