@@ -245,6 +245,8 @@ we can add a v2 without problems, continuing with the compatibility of the old i
 
 ## Notes
 
+**SPA routes**
+The routes used on SPA application are documented at [Documentation](https://documenter.getpostman.com/view/12317309/TzzEoa8R)
 
 **Caching**  
 
