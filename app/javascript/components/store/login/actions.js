@@ -20,7 +20,7 @@ function login(user, from = routes.HOME.path) {
 
     } catch (error) {
       dispatch(
-        alertActions.showAlert({message: error.response.data.error.join(', ')})
+        alertActions.showAlert({message: error.message})
       );
       dispatch({type: loginTypes.LOGIN_FAILURE, error});
     }

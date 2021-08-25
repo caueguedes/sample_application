@@ -1,4 +1,5 @@
 import axios from "axios";
+import { request_failed } from "../utils/response-formatter";
 import config from '../config/config.json';
 
 const api = axios.create({
@@ -11,11 +12,20 @@ api.interceptors.request.use(function (request) {
   return request;
 });
 
-// api.interceptors.response.use(function (response) {
-//   return response;
-// }, function (error) {
-//   return Promise.reject(error);
-// });
+api.interceptors.response.use(function (response) {
+  return response;
+}, function (error) {
+  switch (error.response.data.error) {
+    case 'invalid_client':
+      return Promise.reject(request_failed('Application not valid', error))
+      break;
+    case 'invalid_grant':
+      return Promise.reject(request_failed('User or password not valid', error))
+      break;
+    default:
+      return Promise.reject(request_failed(error))
+  }
+});
 
 function login({ email, password }) {
   return api.post('/oauth/token', {
